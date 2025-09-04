@@ -1,109 +1,105 @@
 {
   "pluginAlias": "Blinds Zigbee MQTT Relay",
   "pluginType": "accessory",
-  "schema": {
-    "type": "object",
-    "properties": {
-      "name": {
-        "title": "Nom du volet",
-        "type": "string",
-        "required": true,
-        "description": "Nom unique du volet roulant"
-      },
-      "mqtt": {
-        "title": "Configuration MQTT",
-        "type": "object",
-        "properties": {
-          "host": {
-            "title": "Hôte MQTT",
-            "type": "string",
-            "default": "localhost",
-            "description": "Adresse IP ou nom d'hôte du serveur MQTT"
-          },
-          "port": {
-            "title": "Port MQTT",
-            "type": "integer",
-            "default": 1883,
-            "minimum": 1,
-            "maximum": 65535,
-            "description": "Port du serveur MQTT"
-          },
-          "username": {
-            "title": "Nom d'utilisateur MQTT",
-            "type": "string",
-            "description": "Nom d'utilisateur pour l'authentification MQTT (optionnel)"
-          },
-          "password": {
-            "title": "Mot de passe MQTT",
-            "type": "string",
-            "description": "Mot de passe pour l'authentification MQTT (optionnel)"
-          },
-          "clientId": {
-            "title": "ID client MQTT",
-            "type": "string",
-            "description": "ID client unique pour la connexion MQTT (optionnel)"
-          }
-        },
-        "required": ["host", "port"]
-      },
-      "relayName": {
-        "title": "Nom du relais",
-        "type": "string",
-        "required": true,
-        "description": "Nom du relais dans zigbee2mqtt (ex: 'relay_living_room')"
-      },
-      "relayType": {
-        "title": "Type de relais",
-        "type": "string",
-        "enum": ["eweLink-2CH", "mhcozy-4CH"],
-        "default": "eweLink-2CH",
-        "description": "Type de relais utilisé"
-      },
-      "channels": {
-        "title": "Configuration des canaux",
-        "type": "object",
-        "properties": {
-          "up": {
-            "title": "Canal UP",
-            "type": "string",
-            "default": "1",
-            "description": "Numéro du canal pour monter le volet"
-          },
-          "down": {
-            "title": "Canal DOWN",
-            "type": "string",
-            "string": "string",
-            "default": "2",
-            "description": "Numéro du canal pour descendre le volet"
-          }
-        },
-        "required": ["up", "down"]
-      },
-      "mqttTopic": {
-        "title": "Topic MQTT de base",
-        "type": "string",
-        "default": "zigbee2mqtt",
-        "description": "Topic MQTT de base pour le relais"
-      },
-      "openDuration": {
-        "title": "Durée d'ouverture (secondes)",
-        "type": "integer",
-        "default": 30,
-        "minimum": 1,
-        "maximum": 300,
-        "description": "Durée en secondes pour ouvrir/fermer complètement le volet"
-      },
-      "queueDelay": {
-        "title": "Délai entre commandes (secondes)",
-        "type": "integer",
-        "default": 2,
-        "minimum": 1,
-        "maximum": 10,
-        "description": "Délai minimum entre les commandes de relais"
-      }
+  "accessory": {
+    "name": {
+      "title": "Nom du volet",
+      "type": "string",
+      "required": true,
+      "description": "Nom unique du volet roulant"
     },
-    "required": ["name", "mqtt", "relayName", "channels"]
+    "mqtt": {
+      "title": "Configuration MQTT",
+      "type": "object",
+      "properties": {
+        "host": {
+          "title": "Hôte MQTT",
+          "type": "string",
+          "default": "localhost",
+          "description": "Adresse IP ou nom d'hôte du serveur MQTT"
+        },
+        "port": {
+          "title": "Port MQTT",
+          "type": "integer",
+          "default": 1883,
+          "minimum": 1,
+          "maximum": 65535,
+          "description": "Port du serveur MQTT"
+        },
+        "username": {
+          "title": "Nom d'utilisateur MQTT",
+          "type": "string",
+          "description": "Nom d'utilisateur pour l'authentification MQTT (optionnel)"
+        },
+        "password": {
+          "title": "Mot de passe MQTT",
+          "type": "string",
+          "description": "Mot de passe pour l'authentification MQTT (optionnel)"
+        },
+        "clientId": {
+          "title": "ID client MQTT",
+          "type": "string",
+          "description": "ID client unique pour la connexion MQTT (optionnel)"
+        }
+      },
+      "required": ["host", "port"]
+    },
+    "relayName": {
+      "title": "Nom du relais",
+      "type": "string",
+      "required": true,
+      "description": "Nom du relais dans zigbee2mqtt (ex: 'relay_living_room')"
+    },
+    "relayType": {
+      "title": "Type de relais",
+      "type": "string",
+      "enum": ["eweLink-2CH", "mhcozy-4CH"],
+      "default": "eweLink-2CH",
+      "description": "Type de relais utilisé"
+    },
+    "channels": {
+      "title": "Configuration des canaux",
+      "type": "object",
+      "properties": {
+        "up": {
+          "title": "Canal UP",
+          "type": "string",
+          "default": "1",
+          "description": "Numéro du canal pour monter le volet"
+        },
+        "down": {
+          "title": "Canal DOWN",
+          "type": "string",
+          "default": "2",
+          "description": "Numéro du canal pour descendre le volet"
+        }
+      },
+      "required": ["up", "down"]
+    },
+    "mqttTopic": {
+      "title": "Topic MQTT de base",
+      "type": "string",
+      "default": "zigbee2mqtt",
+      "description": "Topic MQTT de base pour le relais"
+    },
+    "openDuration": {
+      "title": "Durée d'ouverture (secondes)",
+      "type": "integer",
+      "default": 30,
+      "minimum": 1,
+      "maximum": 300,
+      "description": "Durée en secondes pour ouvrir/fermer complètement le volet"
+    },
+    "queueDelay": {
+      "title": "Délai entre commandes (secondes)",
+      "type": "integer",
+      "default": 2,
+      "minimum": 1,
+      "maximum": 10,
+      "description": "Délai minimum entre les commandes de relais"
+    }
   },
+  "required": ["name", "mqtt", "relayName", "channels"],
   "layout": [
     {
       "type": "section",
