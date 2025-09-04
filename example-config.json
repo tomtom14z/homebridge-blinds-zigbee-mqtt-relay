@@ -1,0 +1,42 @@
+{
+  "accessories": [
+    {
+      "accessory": "BlindsZigbeeMqttRelay",
+      "name": "Volet Salon",
+      "mqtt": {
+        "host": "192.168.1.100",
+        "port": 1883,
+        "username": "mqtt_user",
+        "password": "mqtt_password"
+      },
+      "relayName": "relay_salon",
+      "relayType": "eweLink-2CH",
+      "channels": {
+        "up": "1",
+        "down": "2"
+      },
+      "mqttTopic": "zigbee2mqtt",
+      "openDuration": 25,
+      "queueDelay": 2
+    },
+    {
+      "accessory": "BlindsZigbeeMqttRelay",
+      "name": "Volet Chambre",
+      "mqtt": {
+        "host": "192.168.1.100",
+        "port": 1883,
+        "username": "mqtt_user",
+        "password": "mqtt_password"
+      },
+      "relayName": "relay_chambre",
+      "relayType": "mhcozy-4CH",
+      "channels": {
+        "up": "3",
+        "down": "4"
+      },
+      "mqttTopic": "zigbee2mqtt",
+      "openDuration": 20,
+      "queueDelay": 2
+    }
+  ]
+}
