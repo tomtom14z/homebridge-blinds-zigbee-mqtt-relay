@@ -1,0 +1,20 @@
+{
+  "name": "homebridge-smart-blinds",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "homebridge": "^1.11.0",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "mqtt": "^5.14.0"
+  }
+}
